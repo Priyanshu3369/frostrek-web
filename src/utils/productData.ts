@@ -1,4 +1,4 @@
-import { Bot, Mic, Share2, Database, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Brain, Video, UserCheck, Award, Leaf, Heart, Star, Package, Sparkles, Languages, Lock, Target, Clipboard, TrendingUp } from 'lucide-react';
+import { Bot, Mic, Share2, Database, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Brain, Video, UserCheck, Award, Leaf, Heart, Star, Sparkles, Languages, Lock, Target, Clipboard } from 'lucide-react';
 
 export interface ProductStatistic {
     value: string;
