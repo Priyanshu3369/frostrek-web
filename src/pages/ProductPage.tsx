@@ -10,6 +10,7 @@ import { WorkflowBuilder } from '../components/product/WorkflowBuilder';
 import { CapabilitiesSystem } from '../components/product/CapabilitiesSystem';
 import ProductHero from '../components/product/ProductHero';
 import AllProductsSection from '../components/product/AllProductsSection';
+import { ProductGallery } from '../components/product/ProductGallery';
 import { useTheme } from '../context/ThemeContext';
 import CTASection from '../components/home/CTASection';
 
@@ -55,7 +56,21 @@ const ProductPage = () => {
                 </div>
             </section>
 
-            {/* 3. Workflow / Process Section - SIMPLIFY YOUR WORKFLOW */}
+            {/* 3. Product Gallery (Moved to follow Impact section) */}
+            {product.gallery && product.gallery.length > 0 && (
+                <section className={`py-24 relative overflow-hidden transition-colors ${theme === 'dark' ? 'bg-dark-bg' : 'bg-[#FAFAFA]'}`}>
+                    <div className="container mx-auto px-4 md:px-6">
+                        <div className="text-center mb-16">
+                            <span className={`font-bold tracking-widest uppercase text-sm mb-4 block ${theme === 'dark' ? 'text-dark-accent' : 'text-brand-green-600'}`}>Gallery</span>
+                            <h2 className={`text-4xl md:text-5xl font-sans font-bold mb-6 ${theme === 'dark' ? 'text-dark-text' : 'text-gray-900'}`}>Inside {product.title}</h2>
+                            <p className={`max-w-2xl mx-auto text-lg ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>A closer look at the interfaces driving this innovation.</p>
+                        </div>
+                        <ProductGallery images={product.gallery} />
+                    </div>
+                </section>
+            )}
+
+            {/* 4. Workflow / Process Section - SIMPLIFY YOUR WORKFLOW */}
             <section className={`py-24 relative overflow-hidden transition-colors ${theme === 'dark' ? 'bg-dark-bg' : 'bg-white'}`}>
                 <div className="container mx-auto px-4 md:px-6 relative z-10">
                     <div className="text-center mb-16">
@@ -108,7 +123,9 @@ const ProductPage = () => {
                 )
             }
 
-            {/* 6. FAQ Section */}
+
+
+            {/* 7. FAQ Section */}
             {
                 product.faq && product.faq.length > 0 && (
                     <section className={`py-24 transition-colors ${theme === 'dark' ? 'bg-dark-card' : 'bg-gray-50'}`}>

@@ -6,12 +6,14 @@ import FeaturesSection from '../components/home/FeaturesSection';
 import TestimonialsSection from '../components/home/TestimonialsSection';
 import FAQSection from '../components/home/FAQSection';
 import CTASection from '../components/home/CTASection';
+import TopMarqueeBanner from '../components/home/TopMarqueeBanner';
 
 import CuteBackground from '../components/ui/CuteBackground';
 
 const Home = () => {
     return (
         <div className="min-h-screen relative">
+            <TopMarqueeBanner />
             <CuteBackground />
             <HeroSection />
             <AISolutionsShowcase />

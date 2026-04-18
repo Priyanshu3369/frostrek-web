@@ -1,4 +1,4 @@
-import { Bot, Mic, Share2, Database, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Brain, Video, UserCheck, Award, Leaf, Heart, Star, Sparkles, Languages, Lock, Target, Clipboard } from 'lucide-react';
+import { Bot, Mic, MessageSquare, Share2, Database, ShoppingCart, Headset, BarChart, Server, Globe, Smartphone, Zap, Shield, Users, Clock, Phone, FileText, Activity, Podcast, Calendar, DollarSign, Filter, Eye, MousePointerClick, Send, CheckCircle, Truck, RefreshCw, Settings, Brain, Video, UserCheck, Award, Leaf, Heart, Star, Sparkles, Languages, Lock, Target, Clipboard } from 'lucide-react';
 
 export interface ProductStatistic {
     value: string;
@@ -51,6 +51,8 @@ export interface ProductData {
     benefits: ProductBenefit[];
     useCases: UseCase[];
     faq: FAQItem[];
+    gallery?: string[];
+    externalLink?: string;
 }
 
 export const PRODUCT_DATA: Record<string, ProductData> = {
@@ -61,6 +63,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Intelligent Conversations, Infinite Scale',
         description: 'Empower your support team with a next-gen AI agent that understands context, sentiment, and intent. Resolve up to 80% of inquiries instantly without human intervention.',
         badge: 'Top Rated Support AI',
+        externalLink: 'https://bot.frostrek.com',
         heroImage: '/agent1.png',
         demoImage: '/optimized/chatbot-rafiki.webp',
         statistics: [
@@ -93,6 +96,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { question: 'How long does it take to train?', answer: 'Most clients are live within 2 weeks. Our pre-trained models require minimal fine-tuning.' },
             { question: 'Does it integrate with Zendesk/Salesforce?', answer: 'Yes, we have native integrations with all major helpdesk and CRM platforms.' },
             { question: 'What happens if the AI makes a mistake?', answer: 'You can set confidence thresholds. Low-confidence queries are automatically routed to humans.' },
+        ],
+        gallery: [
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Frosty+AI+Dashboard',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Frosty+AI+Analytics',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Frosty+AI+Settings',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Frosty+AI+Chat+Interface',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Frosty+AI+Metrics'
         ]
     },
     '/products/voice-ai': {
@@ -102,6 +112,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Human-like Voice Interactions at Scale',
         description: 'Create better customer experiences with less effort. Deploy low-latency voice AI agents that handle inbound support and outbound sales calls with natural, human-like fluidity.',
         badge: 'Low Latency Voice',
+        externalLink: 'https://example.com/voice-ai',
         heroImage: '/optimized/frostrek_VA.webp',
         demoImage: '/vn1.png',
         statistics: [
@@ -134,6 +145,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { question: 'Does it sound robotic?', answer: 'Not at all. We use the latest neural TTS engines for hyper-realistic intonation and breathing.' },
             { question: 'Can it handle accents?', answer: 'Yes, our models are trained on diverse datasets to understand global accents.' },
             { question: 'Is it PCI compliant?', answer: 'Yes, we support secure DTMF masking for credit card payments.' },
+        ],
+        gallery: [
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Voice+AI+Dashboard',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Voice+AI+Logs',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Voice+AI+Settings',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Voice+AI+Calls',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Voice+AI+Analytics'
         ]
     },
     '/products/whatsapp-agents': {
@@ -143,6 +161,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Turn Conversations into Revenue',
         description: 'Unlock the power of the world\'s most popular messaging app. Automate notifications, support, and sales directly in WhatsApp with official API integration.',
         badge: 'Meta Business Partner',
+        externalLink: 'https://whatsapp.frostrek.com',
         heroImage: '/wp1.png', // Placeholder
         demoImage: '/wp2.png',
         statistics: [
@@ -174,6 +193,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         faq: [
             { question: 'Is there a risk of getting banned?', answer: 'No, we use the official API which is fully compliant with WhatsApp policies.' },
             { question: 'Can I send promotional messages?', answer: 'Yes, using approved Marketing Templates.' },
+        ],
+        gallery: [
+            'https://placehold.co/800x600/FDFBF7/B07552?text=WhatsApp+Bot+1',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=WhatsApp+Analytics',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=WhatsApp+Campaigns',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=WhatsApp+Broadcasts',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=WhatsApp+Responses'
         ]
     },
     '/products/hiyring': {
@@ -183,6 +209,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Revolutionize Recruitment with AI Video Interviews',
         description: 'Hiyring, powered by Frostrek LLP, is an AI-powered hiring platform that enables companies to conduct autonomous AI video interviews, screening thousands of candidates in minutes instead of weeks. Reduce time-to-hire by up to 85% and significantly cut recruitment costs.',
         badge: 'AI Interview Platform',
+        externalLink: 'https://hiyring.com',
         heroImage: '/optimized/chatbot-rafiki.webp',
         demoImage: '/optimized/chatbot-rafiki.webp',
         statistics: [
@@ -218,6 +245,13 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { question: 'Is the evaluation really bias-free?', answer: 'Yes. Evaluations are anonymized — the AI assesses responses without access to demographic information, reducing unconscious bias significantly.' },
             { question: 'Can candidates practice before the real interview?', answer: 'Absolutely. Hiyring provides practice tools and personalized feedback to help candidates prepare and improve their performance.' },
             { question: 'What languages are supported?', answer: 'Hiyring supports interviews in 15+ languages including English, Hindi, Spanish, French, German, and more.' },
+        ],
+        gallery: [
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Hiyring+Interview',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Hiyring+Candidate+Score',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Hiyring+Hiring+Pipeline',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Hiyring+Talent+Pool',
+            'https://placehold.co/800x600/FDFBF7/D4BB75?text=Hiyring+Reports'
         ]
     },
     '/products/vedashi': {
@@ -227,6 +261,7 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
         subtitle: 'Ancient Wisdom Meets Modern Wellness',
         description: 'Vedashi is a modern wellness brand rooted in the timeless principles of Ayurveda, delivering holistic healing through a seamless blend of ancient Himalayan wisdom and contemporary science. With 250,000+ wellness protocols delivered and a 98% client satisfaction rate.',
         badge: 'Ayurvedic Wellness Brand',
+        externalLink: 'https://vedashi.com',
         heroImage: '/optimized/chatbot-rafiki.webp',
         demoImage: '/optimized/chatbot-rafiki.webp',
         statistics: [
@@ -262,7 +297,50 @@ export const PRODUCT_DATA: Record<string, ProductData> = {
             { question: 'Where are the ingredients sourced from?', answer: 'We source our ingredients from certified organic farms across India and Nepal, working directly with tribal harvesters who have generations of knowledge about Himalayan medicinal plants.' },
             { question: 'How does the personalized wellness protocol work?', answer: 'Our experienced Ayurvedic physicians assess your unique Prakriti (constitution), current health concerns, and lifestyle to create a customized protocol combining products, diet guidance, and yoga practices.' },
             { question: 'Do you ship internationally?', answer: 'Yes, Vedashi products ship worldwide. Our global network of certified practitioners also provides personalized consultations regardless of your location.' },
+        ],
+        gallery: [
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Vedashi+Products',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Vedashi+App',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Vedashi+Community',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Vedashi+Consultations',
+            'https://placehold.co/800x600/FDFBF7/B07552?text=Vedashi+Ecosystem'
         ]
+    },
+    '/products/linkedin-automation': {
+        id: 'linkedin',
+        tagline: 'B2B LEAD GENERATION',
+        title: 'LinkedIn Automation',
+        subtitle: 'Intelligent Outreach at Scale',
+        description: 'Accelerate your business growth with intelligent, personalized LinkedIn outreach campaigns designed to maximize your network and generate high-quality B2B leads.',
+        badge: 'Lead Gen Pro',
+        externalLink: 'https://example.com/linkedin',
+        statistics: [
+            { value: '3x', label: 'More Leads', icon: Users },
+            { value: '70%', label: 'Response Rate', icon: MessageSquare },
+        ],
+        features: [],
+        process: [],
+        benefits: [],
+        useCases: [],
+        faq: []
+    },
+    '/products/erpnext-ai': {
+        id: 'erpnext-ai',
+        tagline: 'SMART ENTERPRISE ERP',
+        title: 'ERPNext AI Modules',
+        subtitle: 'Supercharge Your Operations',
+        description: 'Supercharge your ERPNext implementation with intelligent modules for predictive analytics, smart inventory management, and automated financial workflows.',
+        badge: 'Enterprise Intelligence',
+        externalLink: 'https://example.com/erpnext',
+        statistics: [
+            { value: '40%', label: 'Efficiency Boost', icon: Settings },
+            { value: '99%', label: 'Accuracy', icon: Shield },
+        ],
+        features: [],
+        process: [],
+        benefits: [],
+        useCases: [],
+        faq: []
     },
     // Fallback/Generic for other routes
     'generic': {

@@ -5,7 +5,8 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import {
     Bot, Mic, Database, Workflow, BarChart3,
     ArrowRight, Sparkles, MessageCircle, Volume2,
-    Search, GitBranch, TrendingUp, CheckCircle2
+    Search, GitBranch, TrendingUp, CheckCircle2,
+    Brain, Tag, Terminal
 } from 'lucide-react';
 import { motion, useInView } from 'framer-motion';
 import { Link } from 'react-router-dom';
@@ -14,7 +15,7 @@ import { useTheme } from '../../context/ThemeContext';
 gsap.registerPlugin(ScrollTrigger);
 
 interface SolutionDemo {
-    type: 'chat' | 'voice' | 'search' | 'workflow' | 'analytics';
+    type: 'chat' | 'voice' | 'search' | 'workflow' | 'analytics' | 'rlhf' | 'annotation' | 'prompt';
 }
 
 interface Solution {
@@ -109,6 +110,54 @@ const SOLUTIONS: Solution[] = [
         ],
         link: '/solutions/ecommerce',
         gradient: 'from-[#B07552] to-[#8A5A35]'
+    },
+    {
+        id: 'rlhf',
+        title: 'RLHF Services',
+        tagline: 'Reinforcement Learning from Human Feedback',
+        description: 'Fine-tune large language models and AI systems using high-quality human feedback. Align AI behavior with your specific business values, safety guidelines, and user expectations.',
+        icon: Brain,
+        demo: { type: 'rlhf' },
+        features: [
+            'Model behavior alignment',
+            'Safety and bias mitigation',
+            'Custom reward modeling',
+            'Expert human validation'
+        ],
+        link: '/solutions/rlhf',
+        gradient: 'from-[#D4BB75] to-[#B07552]'
+    },
+    {
+        id: 'data-annotation',
+        title: 'Data Annotation',
+        tagline: 'Precision Labeling at Scale',
+        description: 'High-quality, secure data annotation services to train and improve your machine learning models. From computer vision to NLP, we provide the accurate datasets you need to deploy AI confidently.',
+        icon: Tag,
+        demo: { type: 'annotation' },
+        features: [
+            'Image & Video bounding boxes',
+            'Text & Sentiment classification',
+            'Audio transcription & tagging',
+            'Rigorous Quality Assurance (QA)'
+        ],
+        link: '/solutions/data-annotation',
+        gradient: 'from-[#8A5A35] to-[#6E4629]'
+    },
+    {
+        id: 'prompt-engineering',
+        title: 'Prompt Engineering',
+        tagline: 'Optimize LLM Performance',
+        description: 'Unlock the full potential of Generative AI. Our prompt engineers design, test, and optimize instructions to reduce hallucinations, improve task accuracy, and significantly lower your API token costs.',
+        icon: Terminal,
+        demo: { type: 'prompt' },
+        features: [
+            'Few-shot & Chain-of-Thought design',
+            'Prompt optimization & testing',
+            'Cost & token-usage efficiency',
+            'Output reliability & consistency'
+        ],
+        link: '/solutions/prompt-engineering',
+        gradient: 'from-[#E6D0C6] to-[#D4BB75]'
     }
 ];
 
@@ -373,6 +422,89 @@ const AnalyticsDemo = () => {
     );
 };
 
+const RLHFDemo = () => {
+    const { theme } = useTheme();
+    return (
+        <div className={`rounded-xl p-4 h-[200px] border flex flex-col justify-center transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
+            <div className={`p-3 rounded-lg border mb-4 text-xs shadow-sm ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 text-dark-text' : 'bg-white border-gray-200 text-gray-700'}`}>
+                <p>"The capital of France is Paris."</p>
+                <div className="flex gap-2 mt-3 pt-2 border-t border-dashed border-gray-300/50">
+                    <button className="flex items-center gap-1 text-green-500 bg-green-500/10 px-2 py-1 rounded text-[10px] font-medium transition-transform hover:scale-105"><CheckCircle2 className="w-3 h-3" /> Helpful</button>
+                    <button className="flex items-center gap-1 text-red-500 bg-red-500/10 px-2 py-1 rounded text-[10px] font-medium opacity-50 cursor-not-allowed">Not Helpful</button>
+                </div>
+            </div>
+            <div className="space-y-1 mt-2">
+                <div className="flex justify-between items-center text-[10px]">
+                    <span className={theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}>Alignment Progress</span>
+                    <span className="font-medium text-[#B07552]">92%</span>
+                </div>
+                <div className={`h-1.5 rounded-full w-full overflow-hidden ${theme === 'dark' ? 'bg-dark-card' : 'bg-gray-200'}`}>
+                    <div className="h-full bg-gradient-to-r from-[#8A5A35] to-[#B07552] w-[92%] rounded-full relative overflow-hidden">
+                        <div className="absolute inset-0 bg-white/20 w-full animate-pulse" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const DataAnnotationDemo = () => {
+    const { theme } = useTheme();
+    return (
+        <div className={`rounded-xl p-4 h-[200px] border flex flex-col justify-center transition-colors ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
+            <div className={`p-4 rounded-lg text-xs leading-loose border shadow-sm ${theme === 'dark' ? 'bg-dark-card border-dark-accent/20 text-dark-text' : 'bg-white border-gray-200 text-gray-700'}`}>
+                <span>Apple</span>
+                <span className={`inline-flex items-center mx-1 px-1.5 py-0.5 rounded text-[10px] border font-medium ${theme === 'dark' ? 'bg-blue-500/10 text-blue-400 border-blue-500/30' : 'bg-blue-50/80 text-blue-600 border-blue-500/30'}`}>ORG</span>
+                <span> announced a new </span>
+                <span>iPhone</span>
+                <span className={`inline-flex items-center mx-1 px-1.5 py-0.5 rounded text-[10px] border font-medium ${theme === 'dark' ? 'bg-orange-500/10 text-orange-400 border-orange-500/30' : 'bg-orange-50/80 text-orange-600 border-orange-500/30'}`}>PRODUCT</span>
+                <span> release date set for </span>
+                <span>September</span>
+                <span className={`inline-flex items-center mx-1 px-1.5 py-0.5 rounded text-[10px] border font-medium ${theme === 'dark' ? 'bg-green-500/10 text-green-400 border-green-500/30' : 'bg-green-50/80 text-green-600 border-green-500/30'}`}>DATE</span>
+                <span>.</span>
+            </div>
+            <div className="flex justify-between items-center mt-4">
+                <div className="flex items-center gap-1">
+                    <span className="w-2 h-2 rounded-full bg-blue-500"></span><span className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>Entity Tagging</span>
+                </div>
+                <div className="flex items-center gap-1">
+                    <CheckCircle2 className="w-3 h-3 text-[#B07552]" /><span className={`text-[10px] ${theme === 'dark' ? 'text-dark-text-muted' : 'text-gray-600'}`}>QA Passed</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+const PromptEngineeringDemo = () => {
+    const { theme } = useTheme();
+    return (
+        <div className={`rounded-xl p-3 h-[200px] border flex flex-col justify-center transition-colors gap-1.5 ${theme === 'dark' ? 'bg-dark-bg border-dark-accent/30' : 'bg-[#f5ece4] border-gray-300'}`}>
+            <div className={`px-2.5 py-1.5 rounded-lg border border-dashed ${theme === 'dark' ? 'bg-dark-card/50 border-gray-600 text-gray-400' : 'bg-white/50 border-gray-300 text-gray-500'}`}>
+                <div className="text-[10px] mb-0.5 font-semibold uppercase tracking-wider">Initial Prompt (Token Heavy)</div>
+                <div className="text-xs italic truncate">"Write a very long explanation about AI..."</div>
+            </div>
+            
+            <div className="flex justify-center -my-1 relative z-10 animate-bounce cursor-default">
+                <div className={`p-1 rounded-full border shadow-sm ${theme === 'dark' ? 'bg-dark-bg text-[#B07552] border-dark-accent/30' : 'bg-white text-[#B07552] border-[#B07552]/30'}`}>
+                    <Terminal className="w-3 h-3" />
+                </div>
+            </div>
+            
+            <div className={`px-2.5 py-1.5 rounded-lg border shadow-sm relative overflow-hidden ${theme === 'dark' ? 'bg-gradient-to-r from-dark-card to-dark-bg border-dark-accent/30 text-dark-text' : 'bg-gradient-to-r from-white to-[#FDFBF7] border-[#B07552]/30 text-gray-800'}`}>
+                <div className="flex justify-between items-center mb-0.5">
+                    <div className="text-[10px] font-semibold uppercase text-[#B07552] tracking-wider">Optimized Prompt</div>
+                    <span className="text-[9px] px-1.5 py-0.5 rounded-full bg-green-500/10 text-green-600 font-bold border border-green-500/20">-45% Tokens</span>
+                </div>
+                <div className="text-[11px] leading-snug">
+                    Role: Expert<br />
+                    Task: Concisely explain in 3 points.<br />
+                    Constraint: Focus on facts only.
+                </div>
+            </div>
+        </div>
+    );
+};
+
 const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
     switch (type) {
         case 'chat': return <ChatDemo />;
@@ -380,6 +512,9 @@ const DemoComponent = ({ type }: { type: SolutionDemo['type'] }) => {
         case 'search': return <SearchDemo />;
         case 'workflow': return <WorkflowDemo />;
         case 'analytics': return <AnalyticsDemo />;
+        case 'rlhf': return <RLHFDemo />;
+        case 'annotation': return <DataAnnotationDemo />;
+        case 'prompt': return <PromptEngineeringDemo />;
     }
 };
 
